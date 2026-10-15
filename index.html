@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b0e">
+<title>Miguel_Diaz × Artem_Volkov | Eine besondere Frage</title>
+<style>
+:root{--black:#080a0d;--panel:#101419;--silver:#e7e9ec;--muted:#aab0b8;--gold:#c9a96e;--wine:#721e32;--line:rgba(201,169,110,.48)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--silver);background:radial-gradient(ellipse at 50% -10%,#30343a 0%,#14171b 34%,#080a0d 72%);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:linear-gradient(120deg,transparent 48%,rgba(255,255,255,.07) 49%,transparent 50%);background-size:9px 9px;z-index:-1}
+#petals{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:5}
+.petal{position:absolute;top:-35px;color:#b99159;opacity:.78;text-shadow:0 0 12px rgba(201,169,110,.35);animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(680deg);opacity:.03}}
+.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 14px}
+.card{position:relative;width:min(760px,100%);padding:clamp(25px,6vw,58px);text-align:center;background:linear-gradient(145deg,rgba(22,26,31,.97),rgba(8,10,13,.98));border:1px solid var(--line);box-shadow:0 24px 90px #000b,inset 0 0 45px #c9a96e08}
+.card:before{content:"";position:absolute;inset:8px;border:1px solid #ffffff12;pointer-events:none}
+.card:after{content:"";position:absolute;top:0;left:14%;right:14%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.screen{display:none;position:relative;z-index:1;animation:appear .55s ease}.screen.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+.mark{display:inline-flex;align-items:center;gap:10px;color:var(--gold);font:600 .7rem Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase}
+.mark:before,.mark:after{content:"";width:27px;height:1px;background:var(--gold)}
+h1,h2{font-weight:normal;line-height:1.15;margin:20px 0;color:#f0e6d3}
+h1{font-size:clamp(2.25rem,8vw,4.4rem);letter-spacing:.02em}
+h2{font-size:clamp(1.7rem,6vw,2.9rem)}
+p{font-size:clamp(1rem,3vw,1.16rem);line-height:1.85;color:#c8cbd0;white-space:pre-line}
+.hero-icon{font-size:clamp(3.4rem,12vw,6rem);margin:18px 0;filter:drop-shadow(0 0 18px #c9a96e35)}
+.rule{color:var(--gold);letter-spacing:.6em;margin:24px 0}
+.big-question{font-size:clamp(2.2rem,8vw,4.5rem);color:var(--gold);text-shadow:0 0 25px #c9a96e22}
+.names{font-size:clamp(1.35rem,5vw,2.3rem);line-height:1.7;color:var(--gold)}
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:11px;margin-top:28px}
+button{min-height:48px;padding:14px 20px;border:1px solid #c9a96e99;border-radius:2px;background:linear-gradient(135deg,#8a6835,#c9a96e);color:#0b0c0e;font:700 .82rem Arial,sans-serif;letter-spacing:.055em;cursor:pointer;transition:transform .2s,filter .2s}
+button:hover{transform:translateY(-2px);filter:brightness(1.12)}
+button.secondary{background:transparent;color:var(--silver);border-color:#ffffff35}
+button.wine{background:linear-gradient(135deg,#471522,#7d293d);color:#fff0f2;border-color:#a55b6e}
+.feedback{min-height:44px;color:var(--gold);font-style:italic;margin-top:17px}
+.letter{margin-top:20px;padding:22px 20px;text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#ffffff04}
+.letter p{font-size:1.04rem}
+.small{font: .75rem/1.7 Arial,sans-serif;letter-spacing:.07em;color:#777e87;margin-top:28px}
+.musicbar{position:fixed;right:12px;bottom:12px;z-index:10;display:flex;gap:8px;align-items:center}
+.musicbar button{padding:10px 13px;min-height:40px;font-size:.72rem}
+#musicFile{display:none}
+.footline{font: .67rem Arial,sans-serif;color:#8d9299;letter-spacing:.16em;text-transform:uppercase;margin-top:16px}
+@media(max-width:430px){.card{padding:26px 18px}.btns button{width:100%}.musicbar{right:8px;bottom:8px}.musicbar button{padding:9px 10px}}
+</style>
+</head>
+<body>
+<div id="petals" aria-hidden="true"></div>
+<div class="musicbar">
+  <button class="secondary" id="playBtn" type="button">♫ PLAY MUSIC</button>
+  <button class="secondary" id="pickBtn" type="button">ADD SONG</button>
+  <input id="musicFile" type="file" accept="audio/*">
+</div>
+<audio id="music" loop></audio>
+<main class="wrap"><div class="card">
+<section class="screen active" id="s0">
+<div class="mark">A private edition</div>
+<div class="hero-icon">♛</div>
+<h1>Eine besondere<br>Frage</h1>
+<p>For Artem_Volkov — from Miguel_Diaz
+
+Some stories begin with a simple hello. Others begin in a game, with unexpected conversations, laughter, and little moments that become meaningful.
+
+Tonight, this small page is yours. No rush, no pressure — just a few questions, one honest message, and something Miguel has been wanting to ask you.</p>
+<div class="rule">✦ ━━━━━ ✦</div>
+<div class="btns"><button onclick="go(1)">BEGIN THE STORY →</button></div>
+<div class="footline">Miguel_Diaz · A little luxury, a lot of heart</div>
+</section>
+
+<section class="screen" id="s1">
+<div class="mark">01 / First question</div><div class="hero-icon">♡</div>
+<h2>Tell me honestly, Artem…</h2>
+<div class="big-question">Do you like Miguel_Diaz?</div>
+<div class="btns">
+<button onclick="answer('That little answer just made Miguel smile. ♡',2)">YES, I DO</button>
+<button class="secondary" onclick="answer('A little mystery suits you, Artem. Let’s continue…',2)">MAYBE</button>
+<button class="wine" onclick="answer('So confident! Miguel might actually blush. ♡',2)">OF COURSE</button>
+</div><div class="feedback" id="f1"></div>
+</section>
+
+<section class="screen" id="s2">
+<div class="mark">02 / Tell me why</div><div class="hero-icon">✧</div>
+<h2>What makes Miguel special to you?</h2>
+<p>Choose the answer that feels closest to your heart.</p>
+<div class="btns">
+<button onclick="answer('His personality — that means a lot. ♡',3)">HIS PERSONALITY</button>
+<button onclick="answer('Being cared for is something special. ♡',3)">HOW HE TREATS ME</button>
+<button onclick="answer('You know Miguel can be a little chaotic. 😂',3)">HIS CRAZY SIDE</button>
+<button onclick="answer('Everything? Artem, now you’re making him blush. ♡',3)">EVERYTHING</button>
+<button class="secondary" onclick="answer('Some feelings are hard to explain — and that’s okay. ✧',3)">HE JUST FEELS SPECIAL</button>
+</div><div class="feedback" id="f2"></div>
+</section>
+
+<section class="screen" id="s3">
+<div class="mark">03 / A letter from Miguel</div><div class="hero-icon">✉</div>
+<h2>A message from the heart</h2>
+<p>Some things are better said in a letter.</p>
+<div class="btns" id="envelopeButton"><button onclick="document.getElementById('letter').hidden=false;this.parentElement.hidden=true">OPEN THE LETTER</button></div>
+<div class="letter" id="letter" hidden>
+<p>Dear Artem_Volkov, ♡
+
+It’s funny how two people can meet in a game like Live Russia and end up sharing their own little memories. Between our conversations, jokes, and random moments, I wanted to make something different for you.
+
+I didn’t want to send just an ordinary message. I wanted to create a little world with a premium look, just for you.
+
+And imagine this for a second… what if our story had a new chapter? What if Artem_Volkov became Artem_Diaz? ♡
+
+Hehe, don’t get nervous just yet. There’s one final question, and I want you to answer it honestly, in your own time.</p>
+</div>
+<div class="btns"><button onclick="go(4)">CONTINUE TO THE QUESTION →</button></div>
+</section>
+
+<section class="screen" id="s4">
+<div class="mark">The final question</div><div class="hero-icon">♛</div>
+<p>Artem_Volkov,
+
+One last question from Miguel_Diaz.</p>
+<h1 class="big-question">Will you marry me?</h1>
+<div class="names">MIGUEL_DIAZ <span style="color:#e7e9ec">×</span> ARTEM_VOLKOV</div>
+<div class="rule">✦ ━━━━━ ✦</div>
+<div class="btns">
+<button onclick="go(5)">YES, MIGUEL ♡</button>
+<button class="wine" onclick="go(5)">OF COURSE, MY MIGUEL</button>
+<button class="secondary" onclick="go(6)">LET ME THINK</button>
+</div>
+</section>
+
+<section class="screen" id="s5">
+<div class="mark">A new chapter</div><div class="hero-icon" style="font-size:clamp(3.6rem,13vw,6.4rem)">💐</div>
+<h1>SHE SAID YES</h1>
+<div class="names">MIGUEL_DIAZ<br>♡<br>ARTEM_DIAZ</div>
+<div class="rule">✧ ✦ ✧</div>
+<p>WAIT… REALLY?! ♡
+
+ARTEM_VOLKOV → ARTEM_DIAZ
+
+Hehe, my future Artem_Diaz! Imagine the two of us making more memories in our little Live Russia world — one new chapter at a time.
+
+This page is just a playful in-game surprise, made especially for you. Thank you for being part of this little moment.</p>
+<div class="rule">🌹 ✦ 🌹</div>
+<p>With all my affection,<br><span class="names">MIGUEL_DIAZ</span></p>
+<div class="btns"><button onclick="celebrate()">MORE FLOWERS ✧</button><button class="secondary" onclick="go(0)">REPLAY THE STORY ↻</button></div>
+</section>
+
+<section class="screen" id="s6">
+<div class="mark">Take your time</div><div class="hero-icon">🌷</div>
+<h2>No pressure, Artem.</h2>
+<p>Your answer should be yours to choose. This is just a playful surprise made by Miguel_Diaz, and you can take your time. Thank you for opening this little page. ♡</p>
+<div class="btns"><button onclick="go(0)">REPLAY THE STORY ↻</button></div>
+</section>
+<div class="small">MADE BY MIGUEL_DIAZ · FOR ARTEM_VOLKOV</div>
+</div></main>
+<script>
+const screens=[...document.querySelectorAll('.screen')];
+function go(n){screens.forEach((s,i)=>s.classList.toggle('active',i===n));window.scrollTo({top:0,behavior:'smooth'});if(n===5)celebrate()}
+function answer(message,next){const f=document.querySelector('.screen.active .feedback');if(f){f.textContent=message;setTimeout(()=>go(next),1250)}else go(next)}
+const petalBox=document.getElementById('petals');
+function petal(){const e=document.createElement('span');e.className='petal';e.textContent=['✦','✧','❀','✿','♥'][Math.floor(Math.random()*5)];e.style.left=Math.random()*100+'vw';e.style.setProperty('--drift',(Math.random()*170-85)+'px');e.style.animationDuration=(7+Math.random()*7)+'s';e.style.fontSize=(12+Math.random()*19)+'px';petalBox.appendChild(e);setTimeout(()=>e.remove(),15000)}
+setInterval(petal,650);
+function celebrate(){for(let i=0;i<40;i++)setTimeout(petal,i*55)}
+const music=document.getElementById('music'),playBtn=document.getElementById('playBtn'),pickBtn=document.getElementById('pickBtn'),musicFile=document.getElementById('musicFile');
+pickBtn.addEventListener('click',()=>musicFile.click());
+musicFile.addEventListener('change',()=>{if(musicFile.files&&musicFile.files[0]){music.src=URL.createObjectURL(musicFile.files[0]);music.play().then(()=>playBtn.textContent='♫ PAUSE MUSIC').catch(()=>alert('Tap PLAY MUSIC to start the selected song.'));}});
+playBtn.addEventListener('click',()=>{if(!music.src){alert('To hear music when Artem opens the website, upload a song file named music.mp3 alongside index.html in GitHub. You can also tap ADD SONG to preview an audio file on your own phone.');return}if(music.paused){music.play();playBtn.textContent='♫ PAUSE MUSIC'}else{music.pause();playBtn.textContent='♫ PLAY MUSIC'}});
+</script>
+</body>
+</html>
